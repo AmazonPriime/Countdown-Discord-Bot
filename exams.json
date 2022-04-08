@@ -1,0 +1,366 @@
+[
+    {
+        "course_code": "COMPSCI4003",
+        "course_name": "Algorithmics II (H)",
+        "datetime": "2022-05-04 14:00:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4004",
+        "course_name": "Artificial Intelligence (H)",
+        "datetime": "2022-04-28 09:30:00",
+        "day": "Thu",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4007",
+        "course_name": "Computer Architecture (H)",
+        "datetime": "2022-05-04 09:30:00",
+        "day": "Wed",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4011",
+        "course_name": "Operating Systems (H)",
+        "datetime": "2022-05-05 14:00:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4012",
+        "course_name": "Networked Systems (H)",
+        "datetime": "2022-05-19 09:30:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4013",
+        "course_name": "Database Systems (H)",
+        "datetime": "2022-05-11 14:00:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4015",
+        "course_name": "Prof S/W Development (H)",
+        "datetime": "2022-04-26 14:00:00",
+        "day": "Tue",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4016",
+        "course_name": "Programming Languages (H)",
+        "datetime": "2022-04-25 09:30:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4021",
+        "course_name": "Functional Programming (H)",
+        "datetime": "2022-05-12 14:00:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4023",
+        "course_name": "Human_Computer Interaction (H)",
+        "datetime": "2022-05-18 09:30:00",
+        "day": "Wed",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4031",
+        "course_name": "Modelling Reactive Systems (H)",
+        "datetime": "2022-05-05 09:30:00",
+        "day": "Thu",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4061",
+        "course_name": "Machine Learning (H)",
+        "datetime": "2022-05-20 09:30:00",
+        "day": "Fri",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4062",
+        "course_name": "Cyber Security Fundamentals H",
+        "datetime": "2022-05-10 09:30:00",
+        "day": "Tue",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4064",
+        "course_name": "Big Data:Systems, Prog&Mgt (H)",
+        "datetime": "2022-04-26 09:15:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4068",
+        "course_name": "Mobile HCI (H)",
+        "datetime": "2022-05-06 14:00:00",
+        "day": "Fri",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4069",
+        "course_name": "Information Retrieval (H)",
+        "datetime": "2022-04-29 14:00:00",
+        "day": "Fri",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4071",
+        "course_name": "Advanced SE Practices (H)",
+        "datetime": "2022-05-09 09:30:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4072",
+        "course_name": "Theory of Computation (H)",
+        "datetime": "2022-05-19 09:30:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4073",
+        "course_name": "Data Fundamentals (H)",
+        "datetime": "2022-05-04 14:00:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4074",
+        "course_name": "Text as Data (H)",
+        "datetime": "2022-05-03 09:30:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4075",
+        "course_name": "Recommender Systems (H)",
+        "datetime": "2022-05-17 09:30:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4076",
+        "course_name": "Robotics Foundations (H)",
+        "datetime": "2022-05-17 14:00:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4077",
+        "course_name": "Web Science (H)",
+        "datetime": "2022-05-09 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4080",
+        "course_name": "Comp Social Intelligence (H)",
+        "datetime": "2022-05-16 09:30:00",
+        "day": "Mon",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI4081",
+        "course_name": "Systems Programming (H)",
+        "datetime": "2022-05-16 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4087",
+        "course_name": "Start_up Growth Engineering H",
+        "datetime": "2022-05-03 14:00:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4089",
+        "course_name": "Adv Systems Programming (H)",
+        "datetime": "2022-05-09 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI4091",
+        "course_name": "Advanced Networked Systems (H)",
+        "datetime": "2022-05-16 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5002",
+        "course_name": "Advanced Programming (M)",
+        "datetime": "2022-05-13 09:30:00",
+        "day": "Fri",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5004",
+        "course_name": "Algorithms&Data Structures (M)",
+        "datetime": "2022-05-09 14:00:00",
+        "day": "Mon",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5011",
+        "course_name": "Information Retrieval (M)",
+        "datetime": "2022-04-29 14:00:00",
+        "day": "Fri",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5012",
+        "course_name": "Internet Technology (M)",
+        "datetime": "2022-05-18 14:00:00",
+        "day": "Wed",
+        "duration": "01:00"
+    },
+    {
+        "course_code": "COMPSCI5015",
+        "course_name": "Mobile HCI (M)",
+        "datetime": "2022-05-06 14:00:00",
+        "day": "Fri",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5025",
+        "course_name": "Res Methods & Techs (M) MSci",
+        "datetime": "2022-05-13 14:00:00",
+        "day": "Fri",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5059",
+        "course_name": "Software Engineering (M)",
+        "datetime": "2022-05-12 09:30:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5060",
+        "course_name": "Human_Centred Security (M)",
+        "datetime": "2022-04-26 09:15:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5063",
+        "course_name": "Cyber Security Fundamentals M",
+        "datetime": "2022-05-10 09:30:00",
+        "day": "Tue",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5075",
+        "course_name": "Modelling Reactive Systems (M)",
+        "datetime": "2022-05-05 09:30:00",
+        "day": "Thu",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5078",
+        "course_name": "Web Science (M)",
+        "datetime": "2022-05-09 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5085",
+        "course_name": "Deep Learning (M)",
+        "datetime": "2022-05-11 09:30:00",
+        "day": "Wed",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5088",
+        "course_name": "Big Data: Systems,Prog&Mgt (M)",
+        "datetime": "2022-04-26 09:15:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5091",
+        "course_name": "Recommender Systems (M)",
+        "datetime": "2022-05-17 09:30:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5093",
+        "course_name": "Secured Software Eng (M)",
+        "datetime": "2022-04-27 09:30:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5094",
+        "course_name": "Conversational Interfaces (M)",
+        "datetime": "2022-04-27 14:00:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5095",
+        "course_name": "Comp Social Intelligence (M)",
+        "datetime": "2022-05-16 09:30:00",
+        "day": "Mon",
+        "duration": "02:00"
+    },
+    {
+        "course_code": "COMPSCI5096",
+        "course_name": "Text as Data (M)",
+        "datetime": "2022-05-03 09:30:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5099",
+        "course_name": "Information Visualisation (M)",
+        "datetime": "2022-05-05 09:30:00",
+        "day": "Thu",
+        "duration": "01:00"
+    },
+    {
+        "course_code": "COMPSCI5103",
+        "course_name": "Deep Learning MSc (M)",
+        "datetime": "2022-04-28 09:30:00",
+        "day": "Thu",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5104",
+        "course_name": "Secured Software Eng MSc (M)",
+        "datetime": "2022-04-27 09:30:00",
+        "day": "Wed",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5106",
+        "course_name": "Text as Data for MSc",
+        "datetime": "2022-05-03 09:30:00",
+        "day": "Tue",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5107",
+        "course_name": "Web Science for MSc",
+        "datetime": "2022-05-09 14:00:00",
+        "day": "Mon",
+        "duration": "01:30"
+    },
+    {
+        "course_code": "COMPSCI5109",
+        "course_name": "Advanced SE Practices (M)",
+        "datetime": "2022-05-09 09:30:00",
+        "day": "Mon",
+        "duration": "01:30"
+    }
+]

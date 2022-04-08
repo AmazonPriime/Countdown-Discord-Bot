@@ -1,0 +1,17 @@
+aiohttp==3.7.4.post0
+APScheduler==3.9.1
+async-timeout==3.0.1
+attrs==21.4.0
+backports.zoneinfo==0.2.1
+chardet==4.0.0
+discord.py==1.7.3
+idna==3.3
+multidict==6.0.2
+python-dotenv==0.19.2
+pytz==2022.1
+pytz-deprecation-shim==0.1.0.post0
+six==1.16.0
+typing-extensions==4.1.1
+tzdata==2022.1
+tzlocal==4.1
+yarl==1.7.2

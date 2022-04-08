@@ -1,0 +1,52 @@
+COMPSCI4003 Algorithmics II (H) Wed 04/05/2022 14:00 01:30
+COMPSCI4004 Artificial Intelligence (H) Thu 28/04/2022 09:30 02:00
+COMPSCI4007 Computer Architecture (H) Wed 04/05/2022 09:30 02:00
+COMPSCI4011 Operating Systems (H) Thu 05/05/2022 14:00 01:30
+COMPSCI4012 Networked Systems (H) Thu 19/05/2022 09:30 01:30
+COMPSCI4013 Database Systems (H) Wed 11/05/2022 14:00 01:30
+COMPSCI4015 Prof S/W Development (H) Tue 26/04/2022 14:00 02:00
+COMPSCI4016 Programming Languages (H) Mon 25/04/2022 09:30 01:30
+COMPSCI4021 Functional Programming (H) Thu 12/05/2022 14:00 01:30
+COMPSCI4023 Human_Computer Interaction (H) Wed 18/05/2022 09:30 02:00
+COMPSCI4031 Modelling Reactive Systems (H) Thu 05/05/2022 09:30 02:00
+COMPSCI4061 Machine Learning (H) Fri 20/05/2022 09:30 02:00
+COMPSCI4062 Cyber Security Fundamentals H Tue 10/05/2022 09:30 02:00
+COMPSCI4064 Big Data:Systems, Prog&Mgt (H) Tue 26/04/2022 09:15 01:30
+COMPSCI4068 Mobile HCI (H) Fri 06/05/2022 14:00 02:00
+COMPSCI4069 Information Retrieval (H) Fri 29/04/2022 14:00 02:00
+COMPSCI4071 Advanced SE Practices (H) Mon 09/05/2022 09:30 01:30
+COMPSCI4072 Theory of Computation (H) Thu 19/05/2022 09:30 01:30
+COMPSCI4073 Data Fundamentals (H) Wed 04/05/2022 14:00 01:30
+COMPSCI4074 Text as Data (H) Tue 03/05/2022 09:30 01:30
+COMPSCI4075 Recommender Systems (H) Tue 17/05/2022 09:30 01:30
+COMPSCI4076 Robotics Foundations (H) Tue 17/05/2022 14:00 01:30
+COMPSCI4077 Web Science (H) Mon 09/05/2022 14:00 01:30
+COMPSCI4080 Comp Social Intelligence (H) Mon 16/05/2022 09:30 02:00
+COMPSCI4081 Systems Programming (H) Mon 16/05/2022 14:00 01:30
+COMPSCI4087 Start_up Growth Engineering H Tue 03/05/2022 14:00 01:30
+COMPSCI4089 Adv Systems Programming (H) Mon 09/05/2022 14:00 01:30
+COMPSCI4091 Advanced Networked Systems (H) Mon 16/05/2022 14:00 01:30
+COMPSCI5002 Advanced Programming (M) Fri 13/05/2022 09:30 01:30
+COMPSCI5004 Algorithms&Data Structures (M) Mon 09/05/2022 14:00 02:00
+COMPSCI5011 Information Retrieval (M) Fri 29/04/2022 14:00 02:00
+COMPSCI5012 Internet Technology (M) Wed 18/05/2022 14:00 01:00
+COMPSCI5015 Mobile HCI (M) Fri 06/05/2022 14:00 02:00
+COMPSCI5025 Res Methods & Techs (M) MSci Fri 13/05/2022 14:00 01:30
+COMPSCI5059 Software Engineering (M) Thu 12/05/2022 09:30 01:30
+COMPSCI5060 Human_Centred Security (M) Tue 26/04/2022 09:15 01:30
+COMPSCI5063 Cyber Security Fundamentals M Tue 10/05/2022 09:30 02:00
+COMPSCI5075 Modelling Reactive Systems (M) Thu 05/05/2022 09:30 02:00
+COMPSCI5078 Web Science (M) Mon 09/05/2022 14:00 01:30
+COMPSCI5085 Deep Learning (M) Wed 11/05/2022 09:30 02:00
+COMPSCI5088 Big Data: Systems,Prog&Mgt (M) Tue 26/04/2022 09:15 01:30
+COMPSCI5091 Recommender Systems (M) Tue 17/05/2022 09:30 01:30
+COMPSCI5093 Secured Software Eng (M) Wed 27/04/2022 09:30 01:30
+COMPSCI5094 Conversational Interfaces (M) Wed 27/04/2022 14:00 01:30
+COMPSCI5095 Comp Social Intelligence (M) Mon 16/05/2022 09:30 02:00
+COMPSCI5096 Text as Data (M) Tue 03/05/2022 09:30 01:30
+COMPSCI5099 Information Visualisation (M) Thu 05/05/2022 09:30 01:00
+COMPSCI5103 Deep Learning MSc (M) Thu 28/04/2022 09:30 01:30
+COMPSCI5104 Secured Software Eng MSc (M) Wed 27/04/2022 09:30 01:30
+COMPSCI5106 Text as Data for MSc Tue 03/05/2022 09:30 01:30
+COMPSCI5107 Web Science for MSc Mon 09/05/2022 14:00 01:30
+COMPSCI5109 Advanced SE Practices (M) Mon 09/05/2022 09:30 01:30
