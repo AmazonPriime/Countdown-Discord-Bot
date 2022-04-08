@@ -71,10 +71,11 @@ def format_exam(exam, update=False):
         date = datetime.strptime(exam.get('datetime'), "%d/%m/%Y %H:%M:%S")
     date_str = date.strftime("%d/%m/%Y %H:%M")
     today = datetime.today()
-    mins = int((date - today).total_seconds() / 60)
-    if mins > 0:
-        msg = f'{name.ljust(30)} | {date_str} | {str(int(mins / 60)).rjust(3)} hours'
-        return msg + f' | {str(mins).rjust(5)} mins'
+    hours = (date - today).total_seconds() / 60 / 60
+    days = hours / 24
+    hours = (days - int(days)) * 24
+    if days > 0:
+        return f'{name.ljust(30)} | {date_str} | {int(days)} days {hours:.2f} hours'
     return ''
 
 
