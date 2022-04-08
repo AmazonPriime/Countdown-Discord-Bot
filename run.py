@@ -2,8 +2,10 @@ from datetime import datetime
 import os
 import asyncio
 import json
+import re
 
 import discord
+import pickle
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -42,154 +44,109 @@ clock_emojis = {
     '23': '🕚',
 }
 
-gifs = [x for x in os.listdir() if x.endswith(
-    '.gif') and x != "lotr-frodo.gif"]
-
 with open("exams.json") as f:
     exam_details = json.load(f)
 
 sad_project_id = 837389562878623764
+hacker_bot_spam = 507897269987835935
 my_channel_id = 873129698069188638
+my_bot_spam = 962014516458192976
 
-diss_date = datetime.strptime('2022-04-01 17:00:00', "%Y-%m-%d %H:%M:%S")
+chosen_channel = hacker_bot_spam
 
+exam_messages = []
+if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
+    with open('messages.pickle', 'rb') as f:
+        exam_messages = pickle.load(f)
 
-async def update_nickname():
-    await client.wait_until_ready()
-    while True:
-        # get todays date and calc mins left
-        today = datetime.today()
-        minutes = int((diss_date - today).total_seconds() / 60)
-        nickname = ""
-        # end of countdown update nickname
-        if minutes <= 0:
-            for guild in client.guilds:
-                nickname = 'Hi :)'
-                await guild.me.edit(nick=nickname)
-            print(f'{today}: It is over. End of countdown to {diss_date}')
-            break
-        for guild in client.guilds:
-            try:
-                if '69' in str(minutes) or '420' in str(minutes):
-                    nickname = f'👌 {minutes} mins left'
-                    await guild.me.edit(nick=nickname)
-                else:
-                    nickname = f'{minutes} mins left'
-                    await guild.me.edit(nick=nickname)
-            except Exception as e:
-                print(guild)
-                print(e)
-        print(f'{today}: Updated nickname to: {nickname}')
-        await asyncio.sleep(60)  # task runs every 1 minute
+date_regex = re.compile(r'\d+\/\d+\/\d+ \d+:\d+')
+name_regex = re.compile(r'^\s*(.*?)\|')
 
 
-async def sendMessage(filename=False):
-    channel = client.get_channel(sad_project_id)
-    today = datetime.today()
-    hours = (diss_date - today).total_seconds() / 60 / 60
-    horn = "🎺"
-    msg = f'{horn*2} **ANNOUNCEMENT *{hours:.2f}*  hours left!!** {horn*2}'
-    if hours >= 0:
-        if not filename:
-            if len(gifs) > 0:
-                await channel.send(msg, file=discord.File(gifs.pop()))
-            else:
-                await channel.send(msg)
-        else:
-            await channel.send(msg, file=discord.File(filename))
-
-
-async def sendMessageCheck(filename=False):
-    channel = client.get_channel(sad_project_id)
-    horn = "🎺"
-    msg = f'{horn*4} Remember to submit!! Deadline for those without an' + \
-        ' extension is in **30 minutes!!** We\'re almost there!'
-    await channel.send(msg, file=discord.File('psa.png'))
-
-
-async def sendMessageEnd(filename=False):
-    channel = client.get_channel(sad_project_id)
-    horn = "🎺"
-    party = "🎉"
-    msg = f'{horn}{party*2}{horn} **ITS OVER!!!!** {horn}{party*2}{horn}'
-    await channel.send(msg, file=discord.File('lotr-frodo.gif'))
-    sparkle = "✨"
-    gold = "🥇"
-    msg = f'{sparkle*2} Have a peak at my discord profile for a little {gold}' + \
-        f' reward, you all deserve it!'
-    await channel.send(msg)
-
-
-def print_exam(exam):
+def format_exam(exam, update=False):
     name = exam.get('course_name')
-    code = exam.get('course_code')
-    date = exam.get('datetime')
-    return f'{name} [{code}] - {date}'
-
-
-@client.command()
-async def exam(ctx, code):
-    if not code:
-        return await ctx.send("Please specify a course code or use $exams. :)")
-
-    for exam in exam_details:
-        is_code = exam.get('course_code').lower() == code.lower()
-        has_number = exam.get('course_code')[7:] == code
-        if is_code or has_number:
-            await ctx.send(print_exam(exam))
-
-
-@client.command()
-async def exams(ctx):
-    msgs = []
-    msg = ''
-    for exam in exam_details:
-        name = exam.get('course_name')
-        code = exam.get('course_code')
+    if not update:
         date = datetime.strptime(exam.get('datetime'), "%Y-%m-%d %H:%M:%S")
-        date_str = date.strftime("%d/%m/%Y @ %H:%M")
-        today = datetime.today()
-        hours = int((date - today).total_seconds() / 60 / 60)
-        msg += f'{name} [*{code}*]: {date_str} starts in {hours} hours\n'
-        if len(msg) > 1000:
-            msgs.append(msg)
-            msg = ''
+    else:
+        date = datetime.strptime(exam.get('datetime'), "%d/%m/%Y %H:%M:%S")
+    date_str = date.strftime("%d/%m/%Y %H:%M")
+    today = datetime.today()
+    mins = int((date - today).total_seconds() / 60)
+    if mins > 0:
+        msg = f'{name.ljust(30)} | {date_str} | {str(int(mins / 60)).rjust(3)} hours'
+        return msg + f' | {str(mins).rjust(5)} mins'
+    return ''
+
+
+async def exams():
+    if len(exam_messages) > 0:
+        return
+
+    channel = client.get_channel(chosen_channel)
+
+    init_msg = 'Countdown to each (H) and (M) exam - updates every minute.'
+    init_msg += '\nIf any are missing let me know <@215227555035349004>'
+
+    await channel.send(init_msg)
+
+    msgs = []
+    msg = '```css\n'
+    count = 0
+    for exam in exam_details:
+        exam_msg = format_exam(exam)
+        if len(exam_msg) > 0:
+            msg += exam_msg
+            msg += '\n'
+            count += 1
+
+        if (count + 1) % 20 == 0:
+            msgs.append(msg + '```')
+            msg = '```css\n'
+
     for m in msgs:
-        await ctx.send(m)
+        sent_msg = await channel.send(m)
+        exam_messages.append(sent_msg.id)
+
+    with open('messages.pickle', 'wb') as f:
+        pickle.dump(exam_messages, f)
+
+
+async def update_message(channel, id):
+    message = await channel.fetch_message(id)
+    lines = message.content.split('\n')
+    new_lines = ['```css']
+    for line in lines[1:-1]:
+        name = re.search(name_regex, line).group(1).strip()
+        date_str = re.search(date_regex, line).group()
+        exam = {
+            'course_name': name,
+            'datetime': date_str + ':00',
+        }
+        new_lines.append(format_exam(exam, update=True))
+    new_lines.append('```')
+    await message.edit(content="\n".join(new_lines))
+    print(f'{datetime.today()} updated message with id "{id}"')
 
 
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
+    # update nickname on all servers
+    for guild in client.guilds:
+        nickname = '#bot-commands!'
+        await guild.me.edit(nick=nickname)
+
+    await exams()
+
     scheduler = AsyncIOScheduler()
 
-    cron = CronTrigger(start_date="2022-04-01",
-                       hour="6-16/2",
-                       minute=0,
-                       end_date="2022-04-01 16:00:00")
-    scheduler.add_job(sendMessage, cron)
-
-    cron = CronTrigger(start_date="2022-04-01",
-                       hour="16",
-                       minute="0,15,30,45",
-                       end_date="2022-04-01 17:00:00")
-    scheduler.add_job(sendMessage, cron)
-
-    cron = CronTrigger(start_date="2022-04-01",
-                       hour=16,
-                       minute=30,
-                       end_date="2022-04-01 18:00:00")
-    scheduler.add_job(sendMessageCheck, cron)
-
-    cron = CronTrigger(start_date="2022-04-01",
-                       hour=17,
-                       minute=0,
-                       end_date="2022-04-01 18:00:00")
-    scheduler.add_job(sendMessageEnd, cron)
+    channel = client.get_channel(chosen_channel)
+    for msg in exam_messages:
+        cron = CronTrigger(minute='0-59', end_date="2022-05-30 16:00:00")
+        scheduler.add_job(update_message, cron, args=[channel, msg])
 
     scheduler.start()
 
 
-client.loop.create_task(update_nickname())
 client.run(TOKEN)

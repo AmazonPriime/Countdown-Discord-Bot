@@ -26,5 +26,8 @@ for exam in exams:
         'duration': duration,
     })
 
+exams_json.sort(key=lambda e: datetime.strptime(
+    e.get('datetime'), '%Y-%m-%d %H:%M:%S'))
+
 with open('exams.json', 'w') as f:
     json.dump(exams_json, f, indent=4, sort_keys=True)
