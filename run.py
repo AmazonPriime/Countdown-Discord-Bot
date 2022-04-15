@@ -1,10 +1,8 @@
 from datetime import datetime
 import os
-import asyncio
 import json
 import re
 
-import discord
 import pickle
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -17,42 +15,18 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = commands.Bot(command_prefix='$')
 
-clock_emojis = {
-    '0': '🕛',
-    '1': '🕐',
-    '2': '🕑',
-    '3': '🕒',
-    '4': '🕓',
-    '5': '🕔',
-    '6': '🕕',
-    '7': '🕖',
-    '8': '🕗',
-    '9': '🕘',
-    '10': '🕙',
-    '11': '🕚',
-    '12': '🕛',
-    '13': '🕐',
-    '14': '🕑',
-    '15': '🕒',
-    '16': '🕓',
-    '17': '🕔',
-    '18': '🕕',
-    '19': '🕖',
-    '20': '🕗',
-    '21': '🕘',
-    '22': '🕙',
-    '23': '🕚',
-}
-
 with open("exams.json") as f:
     exam_details = json.load(f)
 
 sad_project_id = 837389562878623764
 hacker_bot_spam = 507897269987835935
+
+pure_dread_id = 964625015419056128
+
 my_channel_id = 873129698069188638
 my_bot_spam = 962014516458192976
 
-chosen_channel = hacker_bot_spam
+chosen_channel = my_bot_spam
 
 exam_messages = []
 if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
@@ -100,9 +74,11 @@ async def exams():
             msg += '\n'
             count += 1
 
-        if (count + 1) % 20 == 0:
+        if (count + 1) % 22 == 0:
             msgs.append(msg + '```')
             msg = '```css\n'
+
+    msgs.append(msg + '```')
 
     for m in msgs:
         sent_msg = await channel.send(m)
@@ -135,7 +111,7 @@ async def on_ready():
 
     # update nickname on all servers
     for guild in client.guilds:
-        nickname = '#bot-commands!'
+        nickname = 'Exam Countdown!'
         await guild.me.edit(nick=nickname)
 
     await exams()
