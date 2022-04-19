@@ -1,9 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import json
 import re
+import random
 
 import pickle
+import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -18,6 +20,9 @@ client = commands.Bot(command_prefix='$')
 with open("exams.json") as f:
     exam_details = json.load(f)
 
+exam_memes = os.listdir(os.path.join(os.getcwd(), 'exam_memes'))
+finished_memes = os.listdir(os.path.join(os.getcwd(), 'times_up'))
+
 sad_project_id = 837389562878623764
 hacker_bot_spam = 507897269987835935
 
@@ -26,7 +31,8 @@ pure_dread_id = 964625015419056128
 my_channel_id = 873129698069188638
 my_bot_spam = 962014516458192976
 
-chosen_channel = pure_dread_id
+chosen_channel = my_bot_spam
+general_channel = my_channel_id
 
 exam_messages = []
 if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
@@ -108,6 +114,22 @@ async def exams():
         pickle.dump(exam_messages, f)
 
 
+async def send_message(channel, course, time_left, finished=False):
+    channel = client.get_channel(channel)
+    if not finished:
+        date_str = f'<t:{int(time_left.timestamp())}>'
+        time_str = f'<t:{int(time_left.timestamp())}:R>'
+        comb = f'{time_str}!\n> Date: {date_str}'
+        image = random.choice(exam_memes)
+        with open('exam_memes/' + image, 'rb') as f:
+            file = discord.File(f)
+        return await channel.send(f'**{course}** exam starts {comb}', file=file)
+    image = random.choice(finished_memes)
+    with open('times_up/' + image, 'rb') as f:
+        file = discord.File(f)
+    await channel.send(f'**{course}** exam has finished!', file=file)
+
+
 async def update_message(channel, id):
     message = await channel.fetch_message(id)
     lines = message.content.split('\n')
@@ -143,9 +165,41 @@ async def on_ready():
         cron = CronTrigger(minute='0-59', end_date="2022-05-30 16:00:00")
         scheduler.add_job(update_message, cron, args=[channel, msg])
 
+    today = datetime.today()
+    for exam in exam_details:
+        name = exam.get('course_name')
+        date = datetime.strptime(exam.get('datetime'), "%Y-%m-%d %H:%M:%S")
+        duration = exam.get('duration').split(':')
+        if date < today and len(duration) != 2:
+            continue
+
+        # 3 days
+        date_3d = date - timedelta(days=3)
+        cron = CronTrigger(hour=date_3d.hour, minute=date_3d.minute,
+                           day=date_3d.day, month=date_3d.month, year=2022)
+        scheduler.add_job(send_message, cron, args=[
+                          general_channel, name, date])
+        # 1 day
+        date_1d = date - timedelta(days=1)
+        cron = CronTrigger(hour=date_1d.hour, minute=date_1d.minute,
+                           day=date_1d.day, month=date_1d.month, year=2022)
+        scheduler.add_job(send_message, cron, args=[
+                          general_channel, name, date])
+        # 1 hour
+        date_1h = date - timedelta(hours=1)
+        cron = CronTrigger(hour=date_1h.hour, minute=date_1h.minute,
+                           day=date_1h.day, month=date_1h.month, year=2022)
+        scheduler.add_job(send_message, cron, args=[
+                          general_channel, name, date])
+        # finished
+        date_f = date + timedelta(hours=int(duration[0]))
+        date_f = date_f + timedelta(minutes=int(duration[1]) + 30)
+        cron = CronTrigger(hour=date_f.hour, minute=date_f.minute,
+                           day=date_f.day, month=date_f.month, year=2022)
+        scheduler.add_job(send_message, cron, args=[
+                          general_channel, name, date, True])
+
     scheduler.start()
 
-
-client.run(TOKEN)
 
 client.run(TOKEN)
