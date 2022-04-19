@@ -25,7 +25,7 @@ finished_memes = os.listdir(os.path.join(os.getcwd(), 'times_up'))
 
 sad_project_id = 837389562878623764
 hacker_bot_spam = 507897269987835935
-
+hackerman_gen = 492008434309398539
 pure_dread_id = 964625015419056128
 
 my_channel_id = 873129698069188638
