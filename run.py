@@ -26,7 +26,7 @@ pure_dread_id = 964625015419056128
 my_channel_id = 873129698069188638
 my_bot_spam = 962014516458192976
 
-chosen_channel = my_bot_spam
+chosen_channel = pure_dread_id
 
 exam_messages = []
 if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
@@ -35,6 +35,7 @@ if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
 
 date_regex = re.compile(r'\d+\/\d+\/\d+ \d+:\d+')
 name_regex = re.compile(r'^\s*(.*?)\|')
+# name_regex = re.compile(r'^`\s*(.*?)`')
 
 
 def format_exam(exam, update=False):
@@ -48,8 +49,27 @@ def format_exam(exam, update=False):
     hours = (date - today).total_seconds() / 60 / 60
     days = hours / 24
     hours = (days - int(days)) * 24
+    remaining_str = f'{int(days)} days {hours:.2f} hours'
     if days > 0:
-        return f'{name.ljust(30)} | {date_str} | {int(days)} days {hours:.2f} hours'
+        return f'{name.ljust(30)} | {date_str} | {remaining_str}'
+    return f'{name.ljust(30)} | {date_str} | Finished! 🏁'
+
+
+def format_exam_new(exam, update=False):
+    name = exam.get('course_name')
+    if not update:
+        date = datetime.strptime(exam.get('datetime'), "%Y-%m-%d %H:%M:%S")
+    else:
+        date = datetime.strptime(exam.get('datetime'), "%d/%m/%Y %H:%M:%S")
+    date_str = date.strftime("%d/%m/%Y %H:%M")
+    today = datetime.today()
+    hours = (date - today).total_seconds() / 60 / 60
+    days = hours / 24
+    hours = (days - int(days)) * 24
+    date_str = f'<t:{int(date.timestamp())}>'
+    time_str = f'<t:{int(date.timestamp())}:R>'
+    if days > 0:
+        return f'`{name.ljust(30)}` {time_str} {date_str}'
     return ''
 
 
@@ -125,5 +145,7 @@ async def on_ready():
 
     scheduler.start()
 
+
+client.run(TOKEN)
 
 client.run(TOKEN)
