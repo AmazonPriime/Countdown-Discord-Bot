@@ -31,8 +31,8 @@ pure_dread_id = 964625015419056128
 my_channel_id = 873129698069188638
 my_bot_spam = 962014516458192976
 
-chosen_channel = my_bot_spam
-general_channel = my_channel_id
+chosen_channel = pure_dread_id
+general_channel = hackerman_gen
 
 exam_messages = []
 if os.path.exists(os.path.join(os.getcwd(), 'messages.pickle')):
@@ -170,7 +170,8 @@ async def on_ready():
         name = exam.get('course_name')
         date = datetime.strptime(exam.get('datetime'), "%Y-%m-%d %H:%M:%S")
         duration = exam.get('duration').split(':')
-        if date < today and len(duration) != 2:
+        is_msc = '(M)' in name or 'MSc' in name
+        if (date < today and len(duration) != 2) or is_msc:
             continue
 
         # 3 days
