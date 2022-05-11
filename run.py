@@ -170,7 +170,7 @@ async def on_ready():
         name = exam.get('course_name')
         date = datetime.strptime(exam.get('datetime'), "%Y-%m-%d %H:%M:%S")
         duration = exam.get('duration').split(':')
-        is_msc = '(M)' in name or 'MSc' in name or name.endswith('M')
+        is_msc = 'M' in name.split()[-1]
         if (date < today and len(duration) != 2) or is_msc:
             continue
 
