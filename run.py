@@ -202,5 +202,7 @@ async def on_ready():
 
     scheduler.start()
 
+    # await channel.send('Exam and Dissertation **deadline** is <t:1655226000:F> (<t:1655226000:R>)!')
+
 
 client.run(TOKEN)
